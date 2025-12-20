@@ -9,7 +9,7 @@ const adminController = require('../controllers/adminController');
 
 // Routes
 router.get('/dealers', adminController.getAllDealers);
-router.put('/dealers/approve/:dealerId', adminController.approveDealer);
+router.put('/approve/:dealerId', adminController.approveDealer);
 router.delete('/dealers/:dealerId', adminController.deleteDealer);
 
 module.exports = router;

@@ -15,7 +15,12 @@ const approveDealer = async (req, res) => {
     try {
         const { dealerId } = req.params;
         const dealer = await adminService.approveDealer(dealerId);
-        res.json(dealer);
+        res.json(
+            {
+            message: 'Dealer approved successfully',
+            dealer
+            }
+        );
     } catch (err) {
         res.status(400).json({ message: err.message });
     }
