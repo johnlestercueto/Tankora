@@ -1,27 +1,46 @@
 const productService = require("../services/productService");
 
+// CREATE PRODUCT
 exports.createProduct = async (req, res) => {
-     try {
-
+    try {
         const productData = {
-         ...req.body,
-        image: req.file ? req.file.filename : null
+            ...req.body,
+            image: req.file ? req.file.filename : null
         };
 
-        const product = await productService.createProduct(productData)
+        const product = await productService.createProduct(productData);
 
         res.status(201).json({
-            message: "create product sucessfully",
+            message: "Product created successfully",
             product
-        })
+        });
     } catch (error) {
-         res.status(500).json({
+        res.status(500).json({
             message: error.message
-        })
+        });
     }
 };
 
-exports.getProducts = async (req, res) => {
-    const products = await productService.getProducts();
-    res.json(products);
+// ✅ GET ALL PRODUCTS
+exports.getAllProducts = async (req, res) => {
+    try {
+        const products = await productService.getAllProducts();
+        res.json(products);
+    } catch (error) {
+        res.status(500).json({
+            message: error.message
+        });
+    }
+};
+
+// ✅ GET SINGLE PRODUCT
+exports.getProduct = async (req, res) => {
+    try {
+        const product = await productService.getProduct(req.params.id);
+        res.json(product);
+    } catch (error) {
+        res.status(404).json({
+            message: error.message
+        });
+    }
 };

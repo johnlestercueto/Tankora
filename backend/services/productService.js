@@ -9,9 +9,25 @@ const createProduct = async (data) => {
     return await Product.create(data);
 };
 
-const getProducts = async (filter = {}) => {
-    return await Product.find(filter)
+// ✅ GET SINGLE PRODUCT
+const getProduct = async (productId) => {
+    const product = await Product.findById(productId)
+        .populate("dealerId", "shopName location");
+
+    if (!product)
+        throw new Error("Product not found");
+
+    return product;
+};
+
+// ✅ GET ALL PRODUCTS
+const getAllProducts = async () => {
+    return await Product.find()
         .populate("dealerId", "shopName location");
 };
 
-module.exports = { createProduct, getProducts };
+module.exports = { 
+    createProduct, 
+    getProduct, 
+    getAllProducts 
+};

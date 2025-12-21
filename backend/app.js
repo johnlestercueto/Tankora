@@ -28,7 +28,8 @@ app.use('/api/products', require('./routes/productRoute'))
 app.use('/api/orders', require('./routes/orderRoute'))
 
 app.use('/api/admin', require('./routes/adminRoutes'));
-app.use('/api/dealer', require('./routes/dealerRoutes'));
+app.use('/api/dealer', require('./routes/dealerRoute'));
+app.use("/api/customers", require('./routes/customerRoute'));
 
 // ======================== TEST ROUTE ========================
 app.get("/", (req, res) => {

@@ -2,6 +2,10 @@ const Order = require("../models/Order");
 const Product = require("../models/Product");
 
 const createOrder = async ({ customerId, productId, quantity }) => {
+    if (quantity <= 0) {
+        throw new Error("Quantity must be greater than 0");
+    }
+    
     const product = await Product.findById(productId);
     if (!product) throw new Error("Product not found");
 
