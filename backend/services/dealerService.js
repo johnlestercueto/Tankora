@@ -40,6 +40,8 @@ const createDealer = async ({ userId, shopName, contactNumber, location }) => {
     return dealer;
 }
 
+
+
 module.exports = {
     getDealerProfile,
     updateDealerProfile,

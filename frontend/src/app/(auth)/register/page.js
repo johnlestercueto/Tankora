@@ -135,7 +135,7 @@ const Page = () => {
         {/* Login link */}
         <p className="text-sm text-center text-gray-600 mt-4">
           Already have an account?{" "}
-          <Link href="/auth/login" className="text-blue-600 hover:underline">
+          <Link href="/login" className="text-blue-600 hover:underline">
             Login
           </Link>
         </p>
