@@ -2,19 +2,55 @@ import Link from "next/link";
 
 export default function DealerLayout({ children }) {
   return (
-    <div className="min-h-screen flex">
-      <aside className="w-64 bg-gray-900 text-white p-5">
-        <h2 className="text-xl font-bold mb-6">Dealer Panel</h2>
+    <div className="min-h-screen flex bg-white">
+      {/* SIDEBAR */}
+      <aside className="w-64 bg-white border-r border-black/10 p-6">
+        <h2 className="text-xl font-semibold text-black mb-8">
+          Dealer Panel
+        </h2>
 
-        <nav className="flex flex-col space-y-3">
-          <Link href="/dashboard" className="hover:text-green-400">Dashboard</Link>
-          <Link href="/products" className="hover:text-green-400">Products</Link>
-          <Link href="/orders" className="hover:text-green-400">Orders</Link>
-          <Link href="/logout" className="text-red-400 mt-6">Logout</Link>
+        <nav className="flex flex-col space-y-4">
+          <Link
+            href="/dashboard"
+            className="text-black hover:text-green-600 transition"
+          >
+            Dashboard
+          </Link>
+
+          <Link
+            href="/products"
+            className="text-black hover:text-green-600 transition"
+          >
+            Products
+          </Link>
+
+          <Link
+            href="/orders"
+            className="text-black hover:text-green-600 transition"
+          >
+            Orders
+          </Link>
+
+          <Link
+            href="/dealer-profile"
+            className="text-black hover:text-green-600 transition"
+          >
+            Dealer Profile
+          </Link>
+
+          <hr className="my-4 border-black/10" />
+
+          <Link
+            href="/logout"
+            className="text-black hover:text-red-600 transition"
+          >
+            Logout
+          </Link>
         </nav>
       </aside>
 
-      <main className="flex-1 bg-gray-100 p-6">
+      {/* MAIN CONTENT */}
+      <main className="flex-1 bg-white p-8 text-black">
         {children}
       </main>
     </div>

@@ -10,7 +10,7 @@ const dealerController = require('../controllers/dealerController');
 // Routes
 // Create profile (only if doesn't exist yet)
 router.post('/', dealerController.createDealerProfile);
-router.get('/profile', dealerController.getDealerProfile);
+router.get('/profile/:id', dealerController.getDealerProfile);
 router.put('/profile', dealerController.updateDealerProfile);
 
 module.exports = router;

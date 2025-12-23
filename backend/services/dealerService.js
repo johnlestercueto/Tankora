@@ -33,7 +33,7 @@ const createDealer = async ({ userId, shopName, contactNumber, location }) => {
         shopName,
         contactNumber,
         location,
-        isApproved: false // default
+        isApproved: true // default
     });
 
     await dealer.save();
